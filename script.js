@@ -90,9 +90,13 @@ let step = 0;
 
 function next() {
   play(clickSound);
-  step++;
-  render();
+
+  if (step < screens.length - 1) {
+    step++;
+    render();
+  }
 }
+
 
 function render() {
   card.innerHTML = screens[step]();
