@@ -24,14 +24,15 @@ body {
 .card {
   width: 100%;
   max-width: 420px;
-  max-height: 80vh;              /* 🔥 LIMIT HEIGHT */
+  max-height: 80vh;        // 🔥 critical
   padding: 28px;
   border-radius: 26px;
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(14px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   text-align: center;
-  overflow-y: auto;              /* 🔥 ENABLE SCROLL */
+
+  overflow-y: auto;        // 🔥 allow scroll
 }
 
 
@@ -81,12 +82,16 @@ button:hover {
 }
 
 /* Hearts background */
-.hearts span {
-  position: absolute;
-  font-size: 16px;
-  opacity: 0.4;
-  animation: float linear infinite;
-  pointer-events: none; /* 🔥 THIS IS THE FIX */
+.hearts {
+  pointer-events: none;   // 🔥 global fix
+
+  span {
+    position: absolute;
+    font-size: 16px;
+    opacity: 0.4;
+    animation: float linear infinite;
+    pointer-events: none; // 🔥 per-heart safety
+  }
 }
 
 @keyframes float {
